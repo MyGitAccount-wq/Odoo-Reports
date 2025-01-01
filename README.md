@@ -1,2 +1,2 @@
 # Odoo-Reports
-It includes report engines for Odoo framework.
+It includes some report engines for Odoo framework.
