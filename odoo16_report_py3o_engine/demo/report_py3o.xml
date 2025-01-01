@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<!--    <record id="res_users_report_py3o" model="ir.actions.report">-->
+<!--        <field name="name">Py3o Demo Report</field>-->
+<!--        <field name="type">ir.actions.report</field>-->
+<!--        <field name="model">res.users</field>-->
+<!--        <field name="report_name">py3o_user_info</field>-->
+<!--        <field name="report_type">py3o</field>-->
+<!--        <field name="py3o_filetype">odt</field>-->
+<!--        <field name="module">report_py3o</field>-->
+<!--        <field name="py3o_template_fallback">demo/res_user.odt</field>-->
+<!--        <field name="binding_model_id" ref="base.model_res_users" />-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+    <record id="res_account_move_report_py3o" model="ir.actions.report">
+        <field name="name">Sale Invoice</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">account.move</field>
+        <field name="report_name">py3o_sale_invoice_info</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/Sale invoice sample Template (ODT).odt</field>
+        <field name="binding_model_id" ref="account.model_account_move" />
+        <field name="binding_type">report</field>
+    </record>
+     <record id="res_main_office_invoice_report_py3o" model="ir.actions.report">
+        <field name="name">Main Office Invoice</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">account.move</field>
+        <field name="report_name">py3o_main_office_invoice_info</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/main_office_invoice.odt</field>
+        <field name="binding_model_id" ref="account.model_account_move" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="res_account_move_bill_report_py3o" model="ir.actions.report">
+        <field name="name">Bill Invoice</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">account.move</field>
+        <field name="report_name">py3o_bill_invoice_info</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/bill_invocie_report.odt</field>
+        <field name="binding_model_id" ref="account.model_account_move" />
+        <field name="binding_type">report</field>
+    </record>
+    <record id="res_hr_expenses_sheet_bill_report_py3o" model="ir.actions.report">
+        <field name="name">Expenses Report</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="report_name">hr_expenses_sheet_bill_report_info</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/expenses_report.odt</field>
+        <field name="binding_model_id" ref="hr_expense.model_hr_expense_sheet" />
+        <field name="binding_type">report</field>
+    </record>
+    <record id="res_sale_quotation_py3o" model="ir.actions.report">
+        <field name="name">Sale Quotation </field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">sale.order</field>
+        <field name="report_name">py3o_daily_quotation</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/sale_quotation.odt</field>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="binding_type">report</field>
+    </record>
+     <record id="res_main_office_quotation_py3o" model="ir.actions.report">
+        <field name="name">Main Office Quotation </field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">sale.order</field>
+        <field name="report_name">py3o_daily_main_office_quotation</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/main_office_quotation.odt</field>
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="binding_type">report</field>
+    </record>
+    <record id="res_stock_picking_operations_py3o" model="ir.actions.report">
+        <field name="name">Internal Transfer</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">stock.picking</field>
+        <field name="report_name">py3o_stock_picking_operations</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">report_py3o</field>
+        <field name="py3o_template_fallback">demo/internal_transfer.odt</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking" />
+        <field name="binding_type">report</field>
+    </record>
+    <report menu="False"
+        id="account.account_invoices_without_payment"
+        model="account.move"
+        string="Invoices without Payment"
+        report_type="qweb-pdf"
+        name="account.report_invoice"
+        file="account.report_invoice"
+        print_report_name="(object._get_report_base_filename())"
+    />
+    <report menu="False"
+        id="account.account_invoices"
+        model="account.move"
+        string="Invoices"
+        report_type="qweb-pdf"
+        name="account.report_invoice_with_payments"
+        file="account.report_invoice_with_payments"
+        print_report_name="(object._get_report_base_filename())"
+    />
+    <report menu="False"
+        id="hr_expense.action_report_hr_expense_sheet"
+        model="hr.expense.sheet"
+        string="Expenses Report"
+        report_type="qweb-pdf"
+        name="hr_expense.report_expense_sheet"
+        file="hr_expense.report_expense_sheet"
+        print_report_name="'Expenses - %s - %s' % (object.employee_id.name, (object.name).replace('/', ''))"
+    />
+    <report menu="False"
+        id="sale.action_report_saleorder"
+        model="sale.order"
+        string="Quotation / Order"
+        report_type="qweb-pdf"
+        name="sale.report_saleorder"
+        file="sale.report_saleorder"
+        print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+    />
+</odoo>
